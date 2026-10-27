@@ -186,7 +186,7 @@
    ;; Search
    `(match ((,class (:foreground ,background :background ,green :inverse-video nil))))
    `(isearch ((,class (:foreground ,foreground :background ,green))))
-   `(lazy-highlight ((,class (:foreground ,background :background ,green :inverse-video nil))))
+   `(lazy-highlight ((,class (:foreground ,foreground :background "#3a3a3a" :inverse-video nil))))
    `(isearch-fail ((,class (:background ,background :inherit font-lock-warning-face :inverse-video t))))
 
    ;; Evil
@@ -507,9 +507,9 @@
    `(org-agenda-date ((,class (:foreground ,blue :underline nil))))
    `(org-agenda-done ((,class (:foreground "#b9ccb2" :strike-through nil))))
    `(org-agenda-dimmed-todo-face ((,class (:foreground ,comment))))
-   `(org-block ((,class (:background unspecified :box nil :foreground ,green :background nil :extend t))))
+   `(org-block ((,class (:background "#3a3a3a" :box nil :foreground ,green :extend t))))
    `(org-block-background ((,t (:background ,far-background :extend t))))
-   `(org-code ((,class (:background unspecified))))
+   `(org-code ((,class (:foreground ,red))))
    `(org-column ((,class (:background ,current-line))))
    `(org-column-title ((,class (:inherit org-column :weight bold :underline t))))
    `(org-date ((,class (:foreground ,"#80cbc4" :underline t))))
@@ -689,11 +689,10 @@
    ;; `(company-tooltip-search ((,class ())))
    `(company-tooltip-selection ((,class (:weight bold :foreground ,foreground :background ,current-line))))
 
-   ;; Company box
-   `(company-box-candidate ((,class (:inherit default :foreground "#eeffff" :background ,background :box nil))))
-   `(company-box-background ((,class (:inherit default :background ,background :box nil))))
-   `(company-box-annotation ((,class (:inherit company-tooltip-annotation :background ,background :foreground "dim gray"))))
-   `(company-box-selection ((,class (:inherit company-tooltip-selection :foreground "sandy brown"))))
+   ;; Company box faces (company-box-candidate/-background/-annotation/-selection)
+   ;; are now obsolete aliases for the company-tooltip* faces above, so they are
+   ;; styled by those specs. Setting them here would resolve to the alias target
+   ;; and, for the -inherit ones, produce a face inheritance cycle.
 
    ;; Popup
    `(popup-menu-face ((,class (:foreground ,foreground :background ,background))))
@@ -707,7 +706,7 @@
    `(ivy-minibuffer-match-face-2 ((,class (:background unspecified :foreground "#FA009A"))))
    `(ivy-minibuffer-match-face-3 ((,class (:background unspecified :foreground "#FA009A"))))
    `(ivy-minibuffer-match-face-4 ((,class (:background unspecified :foreground "#FA009A"))))
-   `(ivy-current-match ((,class (:background "#BF00FF" :foreground "#eceff1"))))
+   `(ivy-current-match ((,class (:background "purple" :foreground "#eceff1"))))
 
    ;; org-indent
    `(org-indent ((,class (:foreground ,background :background ,background))))
@@ -778,7 +777,6 @@
    `(font-latex-warning-face              ((t (:inherit font-lock-warning-face))))
 
    ;; mu4e
-   `(mu4e-unread-face ((,class ())))
    `(mu4e-header-face ((,class (:foreground ,subtle :inherit nil))))
    `(mu4e-header-highlight-face ((,class (:inherit default :foreground "sandy brown" :weight bold :background unspecified))))
    `(mu4e-header-marks-face ((,class (:underline nil :foreground ,yellow))))
@@ -842,24 +840,24 @@
    `(gnus-group-mail-4 ((,class (:foreground nil :weight normal :inherit outline-4))))
    `(gnus-group-mail-5 ((,class (:foreground nil :weight normal :inherit outline-5))))
    `(gnus-group-mail-6 ((,class (:foreground nil :weight normal :inherit outline-6))))
-   `(gnus-group-mail-1-empty ((,class (:inherit gnus-group-mail-1 :foreground ,comment))))
-   `(gnus-group-mail-2-empty ((,class (:inherit gnus-group-mail-2 :foreground ,comment))))
-   `(gnus-group-mail-3-empty ((,class (:inherit gnus-group-mail-3 :foreground ,comment))))
-   `(gnus-group-mail-4-empty ((,class (:inherit gnus-group-mail-4 :foreground ,comment))))
-   `(gnus-group-mail-5-empty ((,class (:inherit gnus-group-mail-5 :foreground ,comment))))
-   `(gnus-group-mail-6-empty ((,class (:inherit gnus-group-mail-6 :foreground ,comment))))
+   `(gnus-group-mail-1-empty ((,class (:weight normal :foreground ,comment))))
+   `(gnus-group-mail-2-empty ((,class (:weight normal :foreground ,comment))))
+   `(gnus-group-mail-3-empty ((,class (:weight normal :foreground ,comment))))
+   `(gnus-group-mail-4-empty ((,class (:weight normal :foreground ,comment))))
+   `(gnus-group-mail-5-empty ((,class (:weight normal :foreground ,comment))))
+   `(gnus-group-mail-6-empty ((,class (:weight normal :foreground ,comment))))
    `(gnus-group-news-1 ((,class (:foreground nil :weight normal :inherit outline-5))))
    `(gnus-group-news-2 ((,class (:foreground nil :weight normal :inherit outline-6))))
    `(gnus-group-news-3 ((,class (:foreground nil :weight normal :inherit outline-7))))
    `(gnus-group-news-4 ((,class (:foreground nil :weight normal :inherit outline-8))))
    `(gnus-group-news-5 ((,class (:foreground nil :weight normal :inherit outline-1))))
    `(gnus-group-news-6 ((,class (:foreground nil :weight normal :inherit outline-2))))
-   `(gnus-group-news-1-empty ((,class (:inherit gnus-group-news-1 :foreground ,comment))))
-   `(gnus-group-news-2-empty ((,class (:inherit gnus-group-news-2 :foreground ,comment))))
-   `(gnus-group-news-3-empty ((,class (:inherit gnus-group-news-3 :foreground ,comment))))
-   `(gnus-group-news-4-empty ((,class (:inherit gnus-group-news-4 :foreground ,comment))))
-   `(gnus-group-news-5-empty ((,class (:inherit gnus-group-news-5 :foreground ,comment))))
-   `(gnus-group-news-6-empty ((,class (:inherit gnus-group-news-6 :foreground ,comment))))
+   `(gnus-group-news-1-empty ((,class (:weight normal :foreground ,comment))))
+   `(gnus-group-news-2-empty ((,class (:weight normal :foreground ,comment))))
+   `(gnus-group-news-3-empty ((,class (:weight normal :foreground ,comment))))
+   `(gnus-group-news-4-empty ((,class (:weight normal :foreground ,comment))))
+   `(gnus-group-news-5-empty ((,class (:weight normal :foreground ,comment))))
+   `(gnus-group-news-6-empty ((,class (:weight normal :foreground ,comment))))
 
    ;; emms
    `(emms-playlist-selected-face ((,class (:foreground ,orange))))
